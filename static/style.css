@@ -1,0 +1,71 @@
+body {
+    background-color: #EEE;
+}
+
+.tracker {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: wrap;
+}
+
+.frame {
+    width: 408px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: wrap;
+    outline: auto;
+    margin: 6px;
+    padding: 4px;
+}
+
+.glyph {
+    position: relative;
+    text-align: right;
+    overflow: hidden;
+}
+
+.glyph label {
+    display: inline-block;
+    position: absolute;
+    left: 70px;
+    top: 50px;
+    text-align: right;
+    color: white;
+    font-size: 48px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px 0px #000000;
+    overflow:hidden;
+}
+
+.configure {
+    padding: 4px;
+    outline: auto;
+    display: block;
+    margin: 6px;
+    height: 128px;
+}
+
+.starchips {
+    display: block;
+    outline: auto;
+    padding: 4px;
+    margin: 6px;
+    height: 128px;
+}
+.starchips label {
+    color: white;
+    font-size: 48px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+.starchip-adder img {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.duel-rank {
+    outline:auto;
+    margin: 6px;
+    padding: 4px;
+}

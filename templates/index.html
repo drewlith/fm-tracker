@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+        <div class="tracker">
+            <!-- Card Tracker ADD MIDDLE CLICK T1/T2 INDICATOR!!!-->
+            <div class="frame" id="frame">
+                <div class="glyph" id="glyph">
+                    <img src="{{url_for('static', filename='art/thunder.png')}}">
+                    <label>0</label>
+                </div>
+            </div>
+            <div class="starchips">
+                <div id="starchip-tracker" style="position:relative">
+                    <img src="{{url_for('static', filename='art/starchip.png')}}">
+                    <label>x 0</label>
+                    <img src="{{url_for('static', filename='art/sparkle1.gif')}}" style="position:absolute;left:36px;top:4px;display:none;" id="anim-0">
+                    <img src="{{url_for('static', filename='art/sparkle2.gif')}}" style="position:absolute;left:-4px;top:12px;display:none;" id="anim-1">
+                    <img src="{{url_for('static', filename='art/sparkle3.gif')}}" style="position:absolute;left:18px;top:36px;display:none;" id="anim-2">
+                </div>
+                <div class="starchip-adder" id="starchip-adder">
+                    <img src="{{url_for('static', filename='art/starnegative.png')}}" id="star0">
+                    <img src="{{url_for('static', filename='art/starnegative.png')}}" id="star1">
+                    <img src="{{url_for('static', filename='art/starnegative.png')}}" id="star2">
+                    <img src="{{url_for('static', filename='art/starnegative.png')}}" id="star3">
+                    <img src="{{url_for('static', filename='art/starnegative.png')}}" id="star4">
+                </div>
+            </div>
+            <div class="configure">
+                <h3>Configuration</h3>
+                <button type="button" onclick="createGlyph()">Add glyph</button>
+                <button type="button" onclick="deleteGlyph()">Remove glyph</button>
+                <div>
+                    <label>Columns</label>
+                    <input type="number" value="4" min="1" max="20" id="columns" oninput="changeColumns()">
+                </div>
+            </div>
+            <div class="duel-rank">
+                <h3>Duel Rank</h3>
+                <label>Condition </label>
+                <select>
+                    <option>Total Annihilation</option>
+                    <option>Attrition</option>
+                    <option>Exodia</option>
+                </select>
+                <br>
+                <label>Turns</label>
+                <input type="number" id="turns" min="0" max="36" value="0">
+                <br>
+                <label>Effective Attacks</label>
+                <input type="number" id="effective" min="0" max="40" value="0">
+                <br>
+                <label>Defensive Wins</label>
+                <input type="number" id="effective" min="0" max="40" value="0">
+                <br>
+                <label>Face Down Plays</label>
+                <input type="number" id="effective" min="0" max="36" value="0">
+                <br>
+                <label>Initiate Fusion</label>
+                <input type="number" id="effective" min="0" max="40" value="0">
+                <br>
+                <label>Equip Magic</label>
+                <input type="number" id="effective" min="0" max="40" value="0">
+                <br>
+                <label>Pure Magic</label>
+                <input type="number" id="effective" min="0" max="40" value="0">
+                <br>
+                <label>Trigger Trap</label>
+                <input type="number" id="effective" min="0" max="40" value="0">
+                <br>
+                <label>Cards Used</label>
+                <input type="number" id="effective" min="0" max="40" value="0">
+                <br>
+                <label>Remaining LP</label>
+                <select>
+                    <option>8000</option>
+                    <option>7000-7999</option>
+                    <option>1000-6999</option>
+                    <option>0100-0999</option>
+                    <option>0000-0099</option>
+                </select>
+            </div>
+        </div>
+        
+        <script src="{{url_for('static', filename='main.js')}}"></script>
+        </div>
+    </body>
+</html>
