@@ -1,0 +1,99 @@
+{
+    "Aqua": {
+        "source":"aqua.png"
+    },
+    "Beast": {
+        "source":"beast.png"
+    },
+    "Beast-Warrior": {
+        "source":"beastwarrior.png"
+    },
+    "Dinosaur": {
+        "source":"dinosaur.png"
+    },
+    "Dragon": {
+        "source":"dragon.png"
+    },
+    "Power-Up": {
+        "glyphName":"Power-Up",
+        "source":"equip.png"
+    },
+    "Fairy": {
+        "source":"fairy.png"
+    },
+    "Fiend": {
+        "source":"fiend.png"
+    },
+    "Fish": {
+        "source":"fish.png"
+    },
+    "Insect": {
+        "source":"insect.png"
+    },
+    "Machine": {
+        "source":"machine.png"
+    },
+    "Magic": {
+        "source":"magic.png"
+    },
+    "Plant": {
+        "source":"plant.png"
+    },
+    "Pyro": {
+        "source":"pyro.png"
+    },
+    "Reptile": {
+        "source":"reptile.png"
+    },
+    "Ritual": {
+        "source":"ritual.png"
+    },
+    "Rock": {
+        "source":"rock.png"
+    },
+    "Sea-Serpent": {
+        "source":"seaserpent.png"
+    },
+    "Spellcaster": {
+        "source":"spellcaster.png"
+    },
+    "Thunder": {
+        "source":"thunder.png"
+    },
+    "Trap": {
+        "source":"trap.png"
+    },
+    "Warrior": {
+        "source":"warrior.png"
+    },
+    "Winged-Beast": {
+        "source":"wingedbeast.png"
+    },
+    "Zombie": {
+        "source":"zombie.png"
+    },
+    "Acid Trap Hole": {
+        "source":"acidtrap.png"
+    },
+    "Beast Fangs": {
+        "source":"beastfangs.png"
+    },
+    "Blue-eyes White Dragon": {
+        "source":"blueeyes.png"
+    },
+    "Bright Castle": {
+        "source":"brightcastle.png"
+    },
+    "Crush Card": {
+        "source":"crushcard.png"
+    },
+    "Dark Energy": {
+        "source":"darkenergy.png"
+    },
+    "Dark Hole": {
+        "source":"darkhole.png"
+    },
+    "Dark Magician": {
+        "source":"darkmagician.png"
+    }
+}

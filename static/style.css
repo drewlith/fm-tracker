@@ -22,6 +22,8 @@ body {
     position: relative;
     text-align: right;
     overflow: hidden;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .glyph label {
@@ -42,7 +44,6 @@ body {
     outline: auto;
     display: block;
     margin: 6px;
-    height: 128px;
 }
 
 .starchips {
@@ -50,7 +51,7 @@ body {
     outline: auto;
     padding: 4px;
     margin: 6px;
-    height: 128px;
+    height: 160px;
 }
 .starchips label {
     color: white;
@@ -60,12 +61,51 @@ body {
 }
 
 .starchip-adder img {
+    margin-bottom: 6px;
     margin-left: 6px;
     margin-right: 6px;
 }
 
 .duel-rank {
+    width: 300px;
     outline:auto;
     margin: 6px;
     padding: 4px;
+}
+
+.duel-rank-control {
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 300px;
+    height: 28px;
+}
+
+.duel-rank-control img {
+    width: 28px;
+    height: 28px;
+}
+
+.duel-rank-control label {
+    position: absolute;
+    left:30px;
+    top:2px;
+    font-size: 24px;
+}
+
+.duel-rank-control input {
+    position: absolute;
+    left: 230px;
+    top: 2px;
+    width: 60px;
+    height: 24px;
+    font-size: 20px;
+}
+
+.duel-rank-control select {
+    position: absolute;
+    left: 200px;
+    top: 2px;
+    width: 90px;
+    height: 28px;
 }

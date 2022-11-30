@@ -4,19 +4,110 @@
     </head>
     <body>
         <div class="tracker">
-            <!-- Card Tracker ADD MIDDLE CLICK T1/T2 INDICATOR!!!-->
-            <div class="frame" id="frame">
-                <div class="glyph" id="glyph">
-                    <img src="{{url_for('static', filename='art/thunder.png')}}">
-                    <label>0</label>
+            <!-- Card Tracker-->
+            <div style="display:block;">
+                <div class="frame" id="frame">
+                    <div class="glyph" id="glyph">
+                        <img src="{{url_for('static', filename='art/thunder.png')}}">
+                        <label>0</label>
+                    </div>
+                    <img src="{{url_for('static', filename='art/tier2.png')}}" style="display:none;" id="tier">
                 </div>
+                <div class="configure">
+                    <h3>Configuration</h3>
+                    <button type="button" onclick="createGlyph()">Add glyph</button>
+                    <button type="button" onclick="deleteGlyph()">Remove glyph</button>
+                    <div class="columns">
+                        <label>Columns</label>
+                        <input type="number" value="4" min="1" max="20" id="columns" oninput="changeColumns()">
+                    </div>
+                    <label>Tracker Mode</label>
+                    <button onclick="changeArtMode();" id="mode-switch">Standard</button>
+                    <br>
+                    <label>Background Color (Hex)</label>
+                    <input type="hex" value="EEEEEE" onchange=changeBGColor(value)>
+                    <br><label>Font Color (Hex)</label>
+                    <input type="hex" value="000000" onchange=changeFontColor(value)>
+                    <br><label>Counter Color (Hex)</label>
+                    <input type="hex" value="FFFFFF" onchange=changeGlyphColor(value)>
+                    <br><br>Created by drewlith.
+                </div>
+            </div>
+            <div class="duel-rank">
+                <h3>Duel Rank</h3>
+                <label>Condition </label>
+                <select id="rank-condition" oninput="calculateDuelRank();">
+                    <option selected>Total Annihilation</option>
+                    <option>Attrition</option>
+                    <option>Exodia</option>
+                </select>
+                <div class="duel-rank-control">
+                    <img src="{{url_for('static', filename='art/turns.png')}}">
+                    <label>Turns</label>
+                    <input type="number" id="rank-turns" min="0" max="36" value="0" oninput="calculateDuelRank();">
+                </div>
+                <div class="duel-rank-control">
+                    <img src="{{url_for('static', filename='art/effectiveattack.png')}}">
+                    <label>Effective Attacks</label>
+                    <input type="number" id="rank-effective" min="0" max="40" value="0" oninput="calculateDuelRank();">
+                </div>
+                <div class="duel-rank-control">
+                    <img src="{{url_for('static', filename='art/defensivewin.png')}}">
+                    <label>Defensive Wins</label>
+                    <input type="number" id="rank-defensive" min="0" max="40" value="0" oninput="calculateDuelRank();">
+                </div>
+                <div class="duel-rank-control">
+                    <img src="{{url_for('static', filename='art/facedown.png')}}">
+                    <label>Face Down Plays</label>
+                    <input type="number" id="rank-facedown" min="0" max="36" value="0" oninput="calculateDuelRank();">
+                </div>
+                <div class="duel-rank-control">
+                    <img src="{{url_for('static', filename='art/fusion.png')}}">
+                    <label>Initiate Fusion</label>
+                    <input type="number" id="rank-fusion" min="0" max="40" value="0" oninput="calculateDuelRank();">
+                </div>
+                <div class="duel-rank-control">
+                    <img src="{{url_for('static', filename='art/equipR.png')}}">
+                    <label>Equip Magic</label>
+                    <input type="number" id="rank-equip" min="0" max="40" value="0" oninput="calculateDuelRank();">
+                </div>
+                <div class="duel-rank-control">
+                    <img src="{{url_for('static', filename='art/puremagic.png')}}">
+                    <label>Pure Magic</label>
+                    <input type="number" id="rank-pure" min="0" max="40" value="0" oninput="calculateDuelRank();">
+                </div>
+                <div class="duel-rank-control">
+                    <img src="{{url_for('static', filename='art/triggertrap.png')}}">
+                    <label>Trigger Trap</label>
+                    <input type="number" id="rank-trap" min="0" max="40" value="0" oninput="calculateDuelRank();">
+                </div>
+                <div class="duel-rank-control">
+                    <img src="{{url_for('static', filename='art/cardsleft.png')}}">
+                    <label>Cards Left</label>
+                    <input type="number" id="rank-left" min="0" max="35" value="35" oninput="calculateDuelRank();">
+                </div>
+                <div class="duel-rank-control">
+                    <img src="{{url_for('static', filename='art/lifepoints.png')}}">
+                    <label>Remaining LP</label>
+                    <select id="rank-lifepoints" oninput="calculateDuelRank();">
+                        <option selected>8000</option>
+                        <option>7000-7999</option>
+                        <option>1000-6999</option>
+                        <option>0100-0999</option>
+                        <option>0000-0099</option>
+                    </select>
+                </div>
+                <img src="{{url_for('static', filename='art/pow.png')}}" id="rank-style" style="margin-top:25px">
+                <img src="{{url_for('static', filename='art/rankD.png')}}" id="rank-letter" style="margin-top:25px">
+                <br><br>Middle-click = Freeze
+                <button style="float:right" onclick="resetRank();">Reset</button>
             </div>
             <div class="starchips">
                 <div id="starchip-tracker" style="position:relative">
                     <img src="{{url_for('static', filename='art/starchip.png')}}">
                     <label>x 0</label>
-                    <img src="{{url_for('static', filename='art/sparkle1.gif')}}" style="position:absolute;left:36px;top:4px;display:none;" id="anim-0">
-                    <img src="{{url_for('static', filename='art/sparkle2.gif')}}" style="position:absolute;left:-4px;top:12px;display:none;" id="anim-1">
+                    <img src="{{url_for('static', filename='art/sparkle1.gif')}}" style="position:absolute;left:36px;top:12px;display:none;" id="anim-0">
+                    <img src="{{url_for('static', filename='art/sparkle2.gif')}}" style="position:absolute;left:-4px;top:4px;display:none;" id="anim-1">
                     <img src="{{url_for('static', filename='art/sparkle3.gif')}}" style="position:absolute;left:18px;top:36px;display:none;" id="anim-2">
                 </div>
                 <div class="starchip-adder" id="starchip-adder">
@@ -26,63 +117,12 @@
                     <img src="{{url_for('static', filename='art/starnegative.png')}}" id="star3">
                     <img src="{{url_for('static', filename='art/starnegative.png')}}" id="star4">
                 </div>
-            </div>
-            <div class="configure">
-                <h3>Configuration</h3>
-                <button type="button" onclick="createGlyph()">Add glyph</button>
-                <button type="button" onclick="deleteGlyph()">Remove glyph</button>
-                <div>
-                    <label>Columns</label>
-                    <input type="number" value="4" min="1" max="20" id="columns" oninput="changeColumns()">
-                </div>
-            </div>
-            <div class="duel-rank">
-                <h3>Duel Rank</h3>
-                <label>Condition </label>
-                <select>
-                    <option>Total Annihilation</option>
-                    <option>Attrition</option>
-                    <option>Exodia</option>
-                </select>
-                <br>
-                <label>Turns</label>
-                <input type="number" id="turns" min="0" max="36" value="0">
-                <br>
-                <label>Effective Attacks</label>
-                <input type="number" id="effective" min="0" max="40" value="0">
-                <br>
-                <label>Defensive Wins</label>
-                <input type="number" id="effective" min="0" max="40" value="0">
-                <br>
-                <label>Face Down Plays</label>
-                <input type="number" id="effective" min="0" max="36" value="0">
-                <br>
-                <label>Initiate Fusion</label>
-                <input type="number" id="effective" min="0" max="40" value="0">
-                <br>
-                <label>Equip Magic</label>
-                <input type="number" id="effective" min="0" max="40" value="0">
-                <br>
-                <label>Pure Magic</label>
-                <input type="number" id="effective" min="0" max="40" value="0">
-                <br>
-                <label>Trigger Trap</label>
-                <input type="number" id="effective" min="0" max="40" value="0">
-                <br>
-                <label>Cards Used</label>
-                <input type="number" id="effective" min="0" max="40" value="0">
-                <br>
-                <label>Remaining LP</label>
-                <select>
-                    <option>8000</option>
-                    <option>7000-7999</option>
-                    <option>1000-6999</option>
-                    <option>0100-0999</option>
-                    <option>0000-0099</option>
-                </select>
+                <input type="number" min="0" max="999999" value="0" id="addstarchips">
+                <button onclick="addStarchips(parseInt(addstarchips.value))">Add</button>
+                <input type="number" min="0" max="999999" value="0" id="removestarchips">
+                <button onclick="removeStarchips(removestarchips.value)">Subtract</button>
             </div>
         </div>
-        
         <script src="{{url_for('static', filename='main.js')}}"></script>
         </div>
     </body>
