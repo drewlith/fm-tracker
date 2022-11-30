@@ -51,7 +51,7 @@ body {
     outline: auto;
     padding: 4px;
     margin: 6px;
-    height: 160px;
+    height: 184px;
 }
 .starchips label {
     color: white;
@@ -108,4 +108,11 @@ body {
     top: 2px;
     width: 90px;
     height: 28px;
+}
+
+.guardian-star {
+    outline:auto;
+    height: 280px;
+    margin: 6px;
+    padding: 4px;
 }

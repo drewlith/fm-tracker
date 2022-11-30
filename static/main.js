@@ -293,15 +293,19 @@ function addGlyphClickEvents(element) {
                 }
                 if (compact) {
                     if (value > 9) {
-                        element.children[1].style = "font-size:24px;top:8px;left:12px";
+                        element.children[1].style.fontSize= "24px";
+                        element.children[1].style.top= "8px";
+                        element.children[1].style.left= "12px";
                     } else {
-                        element.children[1].style = "font-size:24px;top:8px;left:26px";
+                        element.children[1].style.fontSize="24px";
+                        element.children[1].style.top="8px";
+                        element.children[1].style.left="26px";
                     }
                 } else {
                     if (value > 9) {
-                        element.children[1].style = "left:48px";
+                        element.children[1].style.left = "48px";
                     } else {
-                        element.children[1].style = "left:70px";
+                        element.children[1].style.left = "70px";
                     }
                 }
                 element.children[1].innerHTML = value;
@@ -337,15 +341,19 @@ function addGlyphClickEvents(element) {
                 }
                 if (compact) {
                     if (value > 9) {
-                        element.children[1].style= "font-size:24px;top:8px;left:12px";
+                        element.children[1].style.fontSize= "24px";
+                        element.children[1].style.top= "8px";
+                        element.children[1].style.left= "12px";
                     } else {
-                        element.children[1].style= "font-size:24px;top:8px;left:26px";
+                        element.children[1].style.fontSize="24px";
+                        element.children[1].style.top="8px";
+                        element.children[1].style.left="26px";
                     }
                 } else {
                     if (value > 9) {
-                        element.children[1].style = "left:48px";
+                        element.children[1].style.left = "48px";
                     } else {
-                        element.children[1].style = "left:70px";
+                        element.children[1].style.left = "70px";
                     }
                 }
                 element.children[1].innerHTML = value;
@@ -417,6 +425,9 @@ for (let i = 0; i < starAdd.children.length; i++) {
 
 function addStarchips(amount=1) {
     starchips += amount;
+    if (starchips > 999999) {
+        starchips = 999999;
+    }
     starTrack.children[1].innerHTML = "x " + starchips;
 }
 
@@ -736,7 +747,13 @@ function changeArtMode() {
             glyphs[i].children[0].width="40";
             glyphs[i].children[0].height="32";
             glyphs[i].children[0].src=glyphs[i].children[0].src.replace("art", "artSmall");
-            glyphs[i].children[1].style="font-size:24px;top:8px;left:26px";
+            glyphs[i].children[1].style.fontSize = "24px";
+            glyphs[i].children[1].style.top = "8px";
+            if (parseInt(glyphs[i].children[1].innerHTML) >= 10) {
+                glyphs[i].children[1].style.left= "12px";
+            } else {
+                glyphs[i].children[1].style.left = "26px";
+            }
         }  
     } else {
         document.getElementById("mode-switch").innerHTML = "Standard";
@@ -744,7 +761,14 @@ function changeArtMode() {
             glyphs[i].children[0].width="102";
             glyphs[i].children[0].height="96";
             glyphs[i].children[0].src=glyphs[i].children[0].src.replace("artSmall", "art");
-            glyphs[i].children[1].style="font-size:48px;top:50px;left:70px";
+            glyphs[i].children[1].style.fontSize = "48px";
+            glyphs[i].children[1].style.top = "50px";
+            if (parseInt(glyphs[i].children[1].innerHTML) >= 10) {
+                glyphs[i].children[1].style.left = "48px";
+            } else {
+                glyphs[i].children[1].style.left = "70px";
+            }
+            
         }  
     }
     changeColumns();

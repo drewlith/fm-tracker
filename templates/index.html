@@ -1,6 +1,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <link rel="icon" href="{{url_for('static', filename='art/starchip.png')}}">
+        <title>Forbidden Memories Tracker</title>
     </head>
     <body>
         <div class="tracker">
@@ -121,6 +123,11 @@
                 <button onclick="addStarchips(parseInt(addstarchips.value))">Add</button>
                 <input type="number" min="0" max="999999" value="0" id="removestarchips">
                 <button onclick="removeStarchips(removestarchips.value)">Subtract</button>
+                <br><br><button style="float:right" onclick="removeStarchips(999999)">Reset</button>
+            </div>
+            <div class="guardian-star">
+                <h3>Guardian Star</h3>
+                <img src="{{url_for('static', filename='art/guardianstar.png')}}">
             </div>
         </div>
         <script src="{{url_for('static', filename='main.js')}}"></script>
